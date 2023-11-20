@@ -8,7 +8,7 @@ const WeatherStats = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('https://b2b.ignitia.se/api/xxxxx/forecast/longrange', {
+            const response = await fetch('https://b2b.ignitia.se/api/ocp/forecast/longrange', {
                 headers: {
                     'auth-key': process.env.REACT_APP_IGNITIA_API_KEY,
                 },
