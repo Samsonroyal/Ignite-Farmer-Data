@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Chart from 'chart.js';
+import React, { useState, useEffect,  useRef } from 'react';
+import * as Chart from 'chart.js';
 import '../styles/Card.css';
 
 const WeatherCard = () => {
