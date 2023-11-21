@@ -1,5 +1,6 @@
-import React, { useState, useEffect,  useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as Chart from 'chart.js';
+import axios from 'axios';
 import '../styles/Card.css';
 
 const WeatherCard = () => {
@@ -8,58 +9,33 @@ const WeatherCard = () => {
   useEffect(() => {
     // Fetch weather data from an API or other source
     const fetchData = async () => {
-      const response = await fetch('https://b2b.ignitia.se/api/xxxxx/forecast/longrange', {
-        headers: {
-          'auth-key': process.env.REACT_APP_IGNITIA_API_KEY,
-        },
+      let requestData = JSON.stringify({
+        "lat": 5.65178,
+        "lon": 5
       });
-      const data = await response.json();
-      setData(data);
+
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: 'https://b2b.ignitia.se/api/ocp/forecast/longrange',
+        headers: { 
+          'auth-key': '4rKtCc6YvWnsS8EPzCEb9SuS3xEzp5KM', 
+          'Content-Type': 'application/json'
+        },
+        data: requestData
+      };
+
+      try {
+        const response = await axios.request(config);
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
-    
-    fetchData();
+
   }, []);
 
   const chartRef = useRef(null);
-
-  useEffect(() => {
-    // Create the chart
-    const chart = new Chart(chartRef.current, {
-      type: 'line',
-      data: {
-        labels: data.map((item) => item.date),
-        datasets: [
-          {
-            label: 'Temperature (°C)',
-            data: data.map((item) => item.temperature),
-            borderColor: '#ff0000',
-            borderWidth: 2,
-          },
-          {
-            label: 'Rainfall (mm)',
-            data: data.map((item) => item.rainfall),
-            borderColor: '#0099cc',
-            borderWidth: 2,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-      },
-    });
-
-    return () => {
-      chart.destroy();
-    };
-  }, [data]);
 
   return (
     <div className="weather-card">
