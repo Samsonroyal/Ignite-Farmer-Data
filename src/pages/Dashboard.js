@@ -1,34 +1,18 @@
 import React from "react";
 import "../App.css";
+import SideNav from "../components/SideNav";
+import TopNavbar from "../components/TopNavbar";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import WeatherCard from "../components/ChartComponent";
+
 
 export const Dashboard = () => {
   return (
     <div className="dashboard">
-      <div className="overlap">
-        <img className="ellipse" alt="Ellipse" src="../Ellipse 11.png" />
-        <div className="text-wrapper">Ignite Dashboard</div>
-        <div className="group">
-          <div className="div" />
-        </div>
-        <div className="text-wrapper-2">Welcome back Kwame.</div>
-      </div>
-      <div className="text-wrapper-3">23 October 2023</div>
-      <div className="overlap-group">
-        <div className="ellipse-2" />
-        <div className="ellipse-3" />
-        <div className="ellipse-4" />
-        <div className="text-wrapper-4">0mm</div>
-        <div className="text-wrapper-5">Rainfall</div>
-        <div className="ellipse-5" />
-        <div className="text-wrapper-6">0mm</div>
-        <div className="ellipse-6" />
-        <div className="ellipse-7" />
-        <div className="text-wrapper-7">Wind</div>
-        <div className="text-wrapper-8">0mm</div>
-        <div className="text-wrapper-9">Rain</div>
-        <div className="text-wrapper-10">Wind</div>
-        <div className="text-wrapper-11">0mm</div>
-      </div>
+      <TopNavbar    />
+        <div className="text-wrapper-3">23 October 2023</div>
+        <WeatherCard />
+      
       <div className="overlap-2">
         <div className="rectangle" />
         <div className="text-wrapper-12">Plant Activity</div>
@@ -84,24 +68,7 @@ export const Dashboard = () => {
       <div className="overlap-6">
         <div className="text-wrapper-32">Send</div>
       </div>
-      <div className="overlap-group-2">
-        <div className="overlap-7">
-          <div className="text-wrapper-33">Dashboard</div>
-          <img className="vector-2" alt="Vector" src="vector.svg" />
-        </div>
-        <div className="overlap-8">
-          <div className="text-wrapper-34">USSD</div>
-          <img className="vector-3" alt="Vector" src="vector-3.svg" />
-        </div>
-        <div className="overlap-9">
-          <div className="text-wrapper-34">Sensors</div>
-          <img className="vector-4" alt="Vector" src="vector-2.svg" />
-        </div>
-        <div className="overlap-10">
-          <div className="text-wrapper-35">Revenue</div>
-          <img className="vector-5" alt="Vector" src="image.svg" />
-        </div>
+      <SideNav />    
       </div>
-    </div>
   );
 };
