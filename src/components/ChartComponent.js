@@ -5,42 +5,35 @@ import '../styles/Card.css';
 
 const WeatherCard = () => {
   const [data, setData] = useState([]);
+  const chartRef = useRef(null);
 
   useEffect(() => {
-    // Fetch weather data from an API or other source
     const fetchData = async () => {
-      let requestData = JSON.stringify({
-        "lat": 5.65178,
-        "lon": 5
-      });
-
-      let config = {
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: 'https://b2b.ignitia.se/api/ocp/forecast/longrange',
-        headers: { 
-          'auth-key': '4rKtCc6YvWnsS8EPzCEb9SuS3xEzp5KM', 
-          'Content-Type': 'application/json'
-        },
-        data: requestData
-      };
-
       try {
-        const response = await axios.request(config);
+        const response = await axios.get('https://b2b.ignitia.se/api/ocp/forecast/longrange', {
+          headers: {
+            'auth-key': '4rKtCc6YvWnsS8EPzCEb9SuS3xEzp5KM',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Headers': 'Content-Type'
+          },
+          params: {
+            lat: 5.65178,
+            lon: 5,
+          },
+        });
         setData(response.data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
 
+    fetchData();
   }, []);
 
-  const chartRef = useRef(null);
-
   return (
-    <div className="weather-card">
+    <div className="overlap-group">
       <div className="weather-card-header">
-        <h2>Weather Forecast</h2>
+        <div className="text-wrapper-12">Weather Forecast</div>
       </div>
       <div className="weather-card-body">
         <canvas ref={chartRef} className="weather-card-chart" />
