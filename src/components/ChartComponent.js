@@ -16,7 +16,7 @@ const WeatherCard = () => {
       const data = await response.json();
       setData(data);
     };
-
+    
     fetchData();
   }, []);
 
