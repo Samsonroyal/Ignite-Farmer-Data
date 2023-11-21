@@ -1,10 +1,10 @@
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Inter:ital@0;1&display=swap');
 </style>
 body {
   margin: 0;
-  font-family: 'Instrument Serif' ,
+  font-family: 'Inter' ,
     'Ubuntu', 'Nunito',
     sans-serif;
   -webkit-font-smoothing: antialiased;
