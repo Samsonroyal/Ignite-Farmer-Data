@@ -64,7 +64,7 @@ a {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 35%;
+  width: 25%;
 
   
 }
@@ -72,7 +72,7 @@ a {
 
 .main-side{
   flex:display;
-  width: 65%;
+  width: 75%;
   text-align: center;
   padding: 5px 50px;
   align-items: center;
@@ -229,7 +229,6 @@ a {
   align-items: center;
   align-content: center;
   color: white;
-  border: 1px solid red;
 }
 
 .dashboard .vector {
@@ -245,14 +244,18 @@ a {
 
 }
 
-.dashboard .navbar-title {
+.navbar-title {
   color: #ffffff;
   font-family: "Inter-Medium", Helvetica;
   font-size: 30px;
   font-weight: 500;
   letter-spacing: 0;
   line-height: normal;
+  text-align: left;
 
+}
+.searchbar-holder{
+  width: 30%;
 }
 
 .dashboard .navbar-welcome {
