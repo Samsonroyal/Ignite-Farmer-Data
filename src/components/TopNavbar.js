@@ -10,7 +10,11 @@ const TopNavbar = () => {
                     <input className="searchbar" type="text" placeholder="Search" />
                 </div>
             </div>
-            <div className="navbar-welcome">Welcome back Kwame.</div>        </div>
+            <div className="navbar-welcome">Welcome back Kwame.
+            <span role="img" alt="hello">
+            👋
+          </span>
+            </div>        </div>
 
     );
 };

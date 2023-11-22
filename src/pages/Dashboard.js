@@ -11,48 +11,66 @@ export const Dashboard = () => {
   return (
     <>
 <div class="grid-container">
+   <TopNavbar />
 
-      <header class="header">
-        <TopNavbar />
-        <h1>Dashboard</h1></header>
-      <aside class="aside">
-      <h3 class="aside-menu">Menu</h3>
-        <span class="menu-span flex flex-col gap-1.5 mb-6">
+   <div className="dashboard-container">
+
+   <div class="aside">
+       
         <SideNav />
 
-        </span>
-      </aside>
-      <main className="main">
+    
+      </div>
+
+
+      <div className="main-side" >
       <div className="dashboard-header">
           <p>23 October 2023</p>
         </div>
-      <p >
-          Welcome, Kwame
-          <span role="img" alt="hello">
-            👋
-          </span>
-        </p>
-        <div class="overview-content">
-          <div class="overview-card">
-          <div className="Short-range-title">Short Range</div>
-          <WeatherCard />          
-          </div>
-          <div class="overview-card">
-          <div className="Plant-activity-title">Plant Activity</div>
-          </div>
+        <div className="main">
+      
+   
+      <div class="overview-content">
+        <div class="overview-card">
+        <div className="Short-range-title">Short Range</div>
+        <WeatherCard />          
         </div>
-        <div class="chart-content">
-        <div className="Long-range-title">Water Levels</div>
-        <div class="chart"><LongRange /></div>        
+        <div class="overview-card">
+        <div className="Plant-activity-title">Plant Activity</div>
         </div>
-        <div className="div-wrapper">
-          <button className="alert-button">Alert</button>
-        </div>
-        <div className="overlap-6">
-          <button className="send-button">Send</button>
-        </div>
+      </div>
+      <div class="chart-content">
+      <div className="Long-range-title">Water Levels</div>
+      <div class="chart"><LongRange /></div>        
+      </div>
+      <div className="div-wrapper">
+        <button className="alert-button">Alert</button>
+      </div>
+      <div className="overlap-6">
+        <button className="send-button">Send</button>
+      </div>
 
-      </main>
+    </div>
+
+      </div>
+
+  
+
+
+
+       
+
+   </div>
+
+
+
+       
+
+
+      
+
+
+      
       <footer class="footer"><p> ©{new Date().getFullYear()} <img src={logo} alt="fleets logo" /> Ignite Farmer. </p></footer>
     </div>
 
