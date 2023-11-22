@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import Chart from "chart.js/auto";
 import axios from "axios";
 
+const openAIKey = process.env.REACT_APP_OPENAI_API_KEY;
+
+
 const LongRange = () => {
   const [chartData, setChartData] = useState(null);
   const chartRef = useRef(null);
@@ -26,6 +29,7 @@ const LongRange = () => {
   useEffect(() => {
     if (chartData) {
       renderChart();
+      generateTextFromWeatherData(chartData); // Call function to generate text
     }
   }, [chartData]);
 
@@ -65,6 +69,33 @@ const LongRange = () => {
       document.getElementById("chartCanvas"),
       chartConfig
     );
+  };
+
+  const generateTextFromWeatherData = async () => {
+    const weatherSummary = 'Generate a simple weather summary highlighting the numbers and what the farmer should focus on(a layman) be concise and brief as possible. Maximum three sentences'; // Replace with your generated weather summary or description
+
+    try {
+      const openAIResponse = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${openAIKey}`, // Use backticks for string interpolation
+        },
+        body: JSON.stringify({
+          prompt: weatherSummary,
+          max_tokens: 150, // Adjust the max_tokens based on the length of text you want
+        }),
+      });
+
+      if (!openAIResponse.ok) {
+        throw new Error(`OpenAI API request failed with status: ${openAIResponse.status}`);
+      }
+
+      const responseData = await openAIResponse.json();
+      console.log(responseData.choices[0]?.text); // Log or use the generated text
+    } catch (error) {
+      console.error("Error generating text:", error);
+    }
   };
 
   return <canvas id="chartCanvas" />;
