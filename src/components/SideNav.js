@@ -1,26 +1,36 @@
 import React from 'react';
 
 const SideNav = () => {
-    return (
-        <div className="overlap-group-2">
-            <div className="overlap-7">
-                <div className="text-wrapper-33">Farmers</div>
-                <img className="vector-2" alt="Vector" src="vector.svg" />
-            </div>
-            <div className="overlap-8">
-                <div className="text-wrapper-34">USSD</div>
-                <img className="vector-3" alt="Vector" src="vector-3.svg" />
-            </div>
-            <div className="overlap-9">
-                <div className="text-wrapper-34">Sensors</div>
-                <img className="vector-4" alt="Vector" src="vector-2.svg" />
-            </div>
-            <div className="overlap-10">
-                <div className="text-wrapper-35">Revenue</div>
-                <img className="vector-5" alt="Vector" src="image.svg" />
-            </div>        </div>
 
+
+    return (
+        <div className="side-nav">
+            <div className="group">
+                <button className="overlap-group">
+                    <div className="text-wrapper">Users</div>
+                    
+                </button>
+            </div>
+            <div className="overlap-wrapper">
+                <button className="overlap">
+                    <div className="div">USSD</div>
+                </button>
+            </div>
+            <div className="overlap-group-wrapper">
+                <button className="overlap">
+                    <div className="text-wrapper-2">Revenue</div>
+                    
+                </button>
+            </div>
+            <div className="div-wrapper">
+                <button className="overlap">
+                    <div className="text-wrapper-3">Sensors</div>
+                    
+                </button>
+            </div>
+        </div>
     );
 }
+
 
 export default SideNav;
