@@ -162,7 +162,7 @@ const ShortRange = () => {
                             borderColor: "rgb(75, 192, 192)",
                             tension: 0.1,
                         },
-                        // ... rest of the datasets
+                        
                     ],
                 },
                 options: {
