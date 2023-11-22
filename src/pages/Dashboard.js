@@ -6,6 +6,7 @@ import TopNavbar from "../components/TopNavbar";
 //import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WeatherCard from "../components/ChartComponent";
 import LongRange from "../components/LongRange";
+import ShortRange from "../components/ShortRange";
 
 export const Dashboard = () => {
   return (
@@ -33,10 +34,12 @@ export const Dashboard = () => {
       <div class="overview-content">
         <div class="overview-card">
         <div className="Short-range-title">Short Range</div>
-        <WeatherCard />          
+        <ShortRange />
+                
         </div>
         <div class="overview-card">
         <div className="Plant-activity-title">Plant Activity</div>
+        <WeatherCard />  
         </div>
       </div>
 
