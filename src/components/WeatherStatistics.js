@@ -23,13 +23,13 @@ const WeatherStats = () => {
     return (
         <div className="weather-card">
             <div className="card-header">
-                <h2>Weather Forecast</h2>
+                <h2>You Are Welcome to Ignite Farmer Dashboard</h2>
             </div>
             <div className="card-body">
                 {data.length > 0 ? (
                     <ChartComponent data={data} />
                 ) : (
-                    <p>Loading data...</p>
+                    <p>Go to the dashboard route to access the command center..</p>
                 )}
             </div>
         </div>
