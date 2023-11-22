@@ -39,16 +39,29 @@ export const Dashboard = () => {
         <div className="Plant-activity-title">Plant Activity</div>
         </div>
       </div>
-      <div class="chart-content">
+
+
+<div>
+
+<div class="chart-content">
       <div className="Long-range-title">Water Levels</div>
       <div class="chart"><LongRange /></div>        
       </div>
-      <div className="div-wrapper">
+
+  <div className="buttons">
+  <div className="div-wrapper">
         <button className="alert-button">Alert</button>
       </div>
       <div className="overlap-6">
         <button className="send-button">Send</button>
       </div>
+  </div>
+
+</div>
+     
+
+
+     
 
     </div>
 

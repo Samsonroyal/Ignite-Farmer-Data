@@ -61,7 +61,7 @@ a {
 }
 
 .aside {
-  background-color: #fff;
+  background-color: #E4FFE7;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -73,10 +73,32 @@ a {
 
 
 .main-side{
+  flex:display;
   width: 65%;
   border: 1px solid red;
+  text-align: center;
+  padding: 5px 50px;
+  align-items: center;
+  justify-content:center;
+  align-content: center;
+  
 
 }
+.dashboard-header{
+  display: flex;
+  min-height: 7vh;
+  justify-content:center;
+  align-items: center;
+  align-content: center;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
 .aside-menu {
   background: var(--dt-background, #fff);
   color: var(--dt-on-background, rgb(60, 64, 67));
@@ -104,11 +126,7 @@ a {
   padding: 10px;
 }
 
-/* Apply styles to the welcome message */
-.main p {
-  text-align: center;
-  font-size: 18px;
-}
+
 
 /* Apply styles to the overview content */
 .overview-content {
@@ -128,11 +146,8 @@ a {
 
 /* Apply styles to the chart content */
 .chart-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 200px 10px;
-  grid-template-areas: 'chart overview' 'chart content';
-  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
   background-color: #ffffff;
   border-radius: 5px;
   padding: 10px;
