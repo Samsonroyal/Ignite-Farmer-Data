@@ -132,6 +132,8 @@ a {
 .overview-content {
   display: flex;
   justify-content: space-between;
+  border: 1px solid red;
+  height: 35vh;
  
 }
 
@@ -142,6 +144,7 @@ a {
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 40%;
+
 }
 .overview-card-right{
   background-color: #fff;
@@ -149,6 +152,7 @@ a {
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 55%; 
+  height: 35vh;
 }
 
 
@@ -161,17 +165,12 @@ a {
   background-color: #ffffff;
   border-radius: 5px;
   padding: 10px;
+  height: 45vh;
 }
 
 /* Apply styles to each chart */
-.chart,
-.chart-overview {
-  grid-area: chart;
-  grid-area: overview;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.chart{
+  height: 90%;
 }
 
 /* Apply styles to the footer */
