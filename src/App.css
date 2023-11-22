@@ -372,6 +372,14 @@ a {
   height: max-content;
   width: max-content;
   padding: 20px;
-  center: 0;
   width: 465px;
-}
+  
+  }
+
+  .container{
+  
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }

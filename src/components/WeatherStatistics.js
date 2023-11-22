@@ -21,6 +21,7 @@ const WeatherStats = () => {
     }, []);
 
     return (
+        <div className='container'>
         <div className="weather-card">
             <div className="card-header">
                 <h2>You Are Welcome to Ignite Farmer Dashboard</h2>
@@ -33,6 +34,8 @@ const WeatherStats = () => {
                 )}
             </div>
         </div>
+        </div>
+        
     );
 };
 
