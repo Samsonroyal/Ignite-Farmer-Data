@@ -23,11 +23,8 @@ body {
 /* Set default colors */
 body {
   color: #000000;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(240, 240, 240, 1)
-  ) rgba(240, 240, 240, 1);
+  background: linear-gradient(to bottom, transparent, rgba(240, 240, 240, 1))
+    rgba(240, 240, 240, 1);
 }
 
 /* Remove default hyperlink styling */
@@ -43,61 +40,52 @@ a {
   }
 }
 
-
 .grid-container {
-  
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #E2FBD7
+  background-color: #e2fbd7;
 }
 
-.dashboard-container{
+.dashboard-container {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   width: 100vw;
-  border: 1px solid red;
+  border: none;
   height: max-content;
 }
 
 .aside {
-  background-color: #E4FFE7;
+  background-color: #e4ffe7;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 35%;
-  border: 1px solid red;
-
-  
+  border: none;
 }
 
-
-.main-side{
-  flex:display;
+.main-side {
+  flex: display;
   width: 65%;
-  border: 1px solid red;
+  border: none;
   text-align: center;
   padding: 5px 50px;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   align-content: center;
-  
-
 }
-.dashboard-header{
+.dashboard-header {
   display: flex;
   min-height: 7vh;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   align-content: center;
 }
 
-.buttons{
+.buttons {
   display: flex;
   justify-content: space-around;
-
 }
-
 
 .aside-menu {
   background: var(--dt-background, #fff);
@@ -125,8 +113,6 @@ a {
   gap: 10px;
   padding: 10px;
 }
-
-
 
 /* Apply styles to the overview content */
 .overview-content {
@@ -167,19 +153,16 @@ a {
 /* Apply styles to the footer */
 .footer {
   grid-area: footer;
-  background-color: #E2FBD7;
+  background-color: #e2fbd7;
   padding: 10px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
-  
 }
 
 .footer img {
   width: 7px;
   height: 10px;
 }
-
 
 /* Add this media query to hide the aside on tablets and mobile phones */
 @media (max-width: 768px) {
@@ -196,22 +179,15 @@ a {
     line-height: 20px;
   }
 
-
   /* Adjust grid-template-columns to make the main content 80% of the screen width */
   .grid-container {
     grid-template-columns: 2fr 16fr; /* You can adjust the ratio here to fit your desired proportions */
   }
 }
 
-
-
-
-
-
-.dashboard{
+.dashboard {
   background-color: #c7f9e0;
-  display: flex;  
-  
+  display: flex;
 }
 
 .dashboard .navbar {
@@ -226,13 +202,11 @@ a {
   height: 20px;
   top: 635px;
   width: 20px;
-
 }
 
 .dashboard .ellipse {
   height: 80px;
   width: 79px;
-
 }
 
 .dashboard .navbar-title {
@@ -244,14 +218,11 @@ a {
   line-height: normal;
 
   width: 254px;
-
-
 }
 
 .dashboard .navbar-welcome {
   color: #ffffff;
   font-family: "Inter-Medium", Helvetica;
-
 }
 
 .dashboard .searchbar {
@@ -272,7 +243,7 @@ a {
 .side-nav .group {
   left: 16px;
   position: relative;
-  top: 58px;
+  top: 38px;
   width: auto;
 }
 
@@ -280,8 +251,8 @@ a {
   background-color: #0b8246fa;
   border-radius: 15px;
   box-shadow: 0px 4px 4px #00000040;
-  height: 64px;  
-  position: relative; 
+  height: 64px;
+  position: relative;
   width: 190px;
 }
 
@@ -323,12 +294,12 @@ a {
   font-family: "Inter-Regular", Helvetica;
   font-size: 24px;
   font-weight: 400;
-  
+
   letter-spacing: 0;
-  line-height: normal;  
+  line-height: normal;
   box-sizing: border-box;
-    padding: 0;
-    margin:
+  padding: 0;
+  margin: ;
 }
 
 .side-nav .img {
@@ -397,19 +368,31 @@ a {
 }
 
 .alert-button {
-  background-color: #D43E3E;
+  background-color: #d43e3e;
   border-radius: 15px;
   box-shadow: 0px 4px 4px #00000040;
   height: max-content;
   width: max-content;
-  padding:10px
+  padding: 10px;
 }
 
 .send-button {
-  background-color: #2C9238;
+  background-color: #2c9238;
   border-radius: 15px;
   box-shadow: 0px 4px 4px #00000040;
   height: max-content;
   width: max-content;
-  padding:10px;
+  padding: 10px;
+}
+
+
+.weather-card{
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px #00000040;
+  height: max-content;
+  width: max-content;
+  padding: 20px;
+  center: 0;
+  width: 465px;
 }
