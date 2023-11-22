@@ -9,6 +9,14 @@ import LongRange from "../components/LongRange";
 import ShortRange from "../components/ShortRange";
 
 export const Dashboard = () => {
+  const handleAlertButtonClick = () => {
+    window.location.href = "https://telerivet.com/p/e129fa1a/messages";
+  };
+
+  const handleSendButtonClick = () => {
+    window.location.href = "https://telerivet.com/p/e129fa1a/messages?mode=c";
+  };
+
   return (
     <>
 <div class="grid-container">
@@ -51,14 +59,19 @@ export const Dashboard = () => {
       <div class="chart"><LongRange /></div>        
       </div>
 
+  
   <div className="buttons">
-  <div className="div-wrapper">
-        <button className="alert-button">Alert</button>
+        <div className="div-wrapper">
+          <button className="alert-button" onClick={handleAlertButtonClick}>
+            Alert Farmers
+          </button>
+        </div>
+        <div className="overlap-6">
+          <button className="send-button" onClick={handleSendButtonClick}>
+            Send Insights to Farmer
+          </button>
+        </div>
       </div>
-      <div className="overlap-6">
-        <button className="send-button">Send</button>
-      </div>
-  </div>
 
 </div>
      
