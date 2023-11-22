@@ -2,16 +2,43 @@ import React from "react";
 import "../App.css";
 import SideNav from "../components/SideNav";
 import TopNavbar from "../components/TopNavbar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+//import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WeatherCard from "../components/ChartComponent";
+import LongRange from "../components/LongRange";
 
 
 export const Dashboard = () => {
   return (
     <div className="dashboard">
-      <TopNavbar    />
-        <div className="text-wrapper-3">23 October 2023</div>
-        <WeatherCard />
+      <TopNavbar/>
+      <div className="dashboard-container">
+         <div className="dashboard-header">
+          <p>23 October 2023</p>
+         <WeatherCard /> 
+         </div>
+
+         <div className="dashboard-body"> 
+         
+         
+         </div>
+
+
+
+       
+        
+
+      <img className="vector" alt="Vector" src="vector-4.svg" />
+      <img className="planner" alt="Planner" src="planner.png" />
+      <div className="div-wrapper">
+        <div className="text-wrapper-31">Alert</div>
+      </div>
+      <div className="overlap-6">
+        <div className="text-wrapper-32">Send</div>
+      </div>
+
+      
+
+       
       
       <div className="overlap-2">
         <div className="rectangle" />
@@ -36,39 +63,19 @@ export const Dashboard = () => {
         <img className="line-3" alt="Line" src="line-3.svg" />
       </div>
       <div className="overlap-3">
-        <div className="text-wrapper-20">Water Levels</div>
-        <div className="text-wrapper-21">Tomato</div>
-        <div className="overlap-4">
-          <div className="overlap-5">
-            <img className="mark-area" alt="Mark area" src="mark-area.svg" />
-            <img className="line-4" alt="Line" src="line-4.svg" />
-            <img className="line-5" alt="Line" src="line-5.svg" />
-            <img className="line-6" alt="Line" src="line-6.svg" />
-            <img className="line-7" alt="Line" src="line-7.svg" />
-            <div className="text-wrapper-22">850</div>
-          </div>
-          <p className="element">
-            <span className="span">0</span>
-            <span className="text-wrapper-23">mm</span>
-          </p>
-          <div className="text-wrapper-24">250</div>
-          <div className="text-wrapper-25">650</div>
-        </div>
-        <div className="text-wrapper-26">Jan</div>
-        <div className="text-wrapper-27">Feb</div>
-        <div className="text-wrapper-28">Mar</div>
-        <div className="text-wrapper-29">Jul</div>
-        <div className="text-wrapper-30">Jun</div>
+        <div className="text-wrapper-20">Water Levels ssss</div>
+          <LongRange/>
+     
       </div>
-      <img className="vector" alt="Vector" src="vector-4.svg" />
-      <img className="planner" alt="Planner" src="planner.png" />
-      <div className="div-wrapper">
-        <div className="text-wrapper-31">Alert</div>
-      </div>
-      <div className="overlap-6">
-        <div className="text-wrapper-32">Send</div>
-      </div>
-      <SideNav />    
+        
+      
+
+      <SideNav />  
+         </div>
+
+
+
+  
       </div>
   );
 };
