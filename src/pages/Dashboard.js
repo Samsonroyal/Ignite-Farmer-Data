@@ -37,7 +37,7 @@ export const Dashboard = () => {
         <ShortRange />
                 
         </div>
-        <div class="overview-card">
+        <div class="overview-card-right">
         <div className="Plant-activity-title">Plant Activity</div>
         <WeatherCard />  
         </div>
