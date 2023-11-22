@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
-import Chart from 'chart.js/auto';
-import axios from 'axios';
+import React, { useEffect, useState, useRef } from "react";
+import Chart from "chart.js/auto";
+import axios from "axios";
 
 const LongRange = () => {
   const [chartData, setChartData] = useState(null);
@@ -9,12 +9,14 @@ const LongRange = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://lazy-blue-dibbler-ring.cyclic.app/api/data/long?lat=5.62518719526291&long=-0.22263491962881826');
-        const data = JSON.parse( response.data );
-        console.log(data)
+        const response = await axios.get(
+          "https://lazy-blue-dibbler-ring.cyclic.app/api/data/long?lat=5.62518719526291&long=-0.22263491962881826"
+        );
+        const data = JSON.parse(response.data);
+        console.log(data);
         setChartData(data.monthly);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -32,15 +34,15 @@ const LongRange = () => {
     const rainfallData = chartData.map((month) => month.rainfall);
 
     const chartConfig = {
-      type: 'line',
+      type: "line",
       data: {
         labels: labels,
         datasets: [
           {
-            label: 'Monthly Rainfall',
+            label: "Monthly Rainfall",
             data: rainfallData,
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: "rgb(75, 192, 192)",
             tension: 0.1,
           },
         ],
@@ -59,7 +61,10 @@ const LongRange = () => {
       chartRef.current.destroy();
     }
 
-    chartRef.current = new Chart(document.getElementById('chartCanvas'), chartConfig);
+    chartRef.current = new Chart(
+      document.getElementById("chartCanvas"),
+      chartConfig
+    );
   };
 
   return <canvas id="chartCanvas" />;
