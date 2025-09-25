@@ -1,21 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import WeatherStats from './components/WeatherStatistics';
-import MyWeatherComponent from './components/Weather'
-import { Dashboard } from './pages/Dashboard';
-import LongRange from './components/LongRange';
+
+import Auth from './pages/Auth';
+import Dashboard from './pages/Dashboard';
 import './App.css';
 
 
 function App() {
+  const [authenticated, setAuthenticated] = React.useState(false);
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<WeatherStats />} />
-        <Route path="/weather" element={<MyWeatherComponent />} />
-        <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path="/longrange" element={<LongRange/>} />
-        
+        <Route path="/" element={<Auth onAuth={() => setAuthenticated(true)} />} />
+        <Route path="/dashboard" element={authenticated ? <Dashboard /> : <Auth onAuth={() => setAuthenticated(true)} />} />
+        {/* Add other routes as needed, e.g. weather, longrange, etc. */}
       </Routes>
     </Router>
   );
