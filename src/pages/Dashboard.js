@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@mui/material'; // Added missing import
 import '../App.css';
 import logo from '../logo.svg';
 import SideNav from '../components/SideNav';
@@ -19,7 +20,7 @@ const Dashboard = () => {
 
   return (
     <>
-  <div className="grid-container">
+      <div className="grid-container">
         <TopNavbar />
 
         <div className="dashboard-container">
@@ -78,8 +79,9 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+        </div>
 
-  <footer className="footer">
+        <footer className="footer">
           <p>
             {' '}
             ©{new Date().getFullYear()} <img src={logo} alt="fleets logo" /> Ignite Farmer.{' '}
