@@ -6,25 +6,67 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
 
+// Validate required environment variables
+if (!process.env.DATABASE_URL) {
+  console.error('DATABASE_URL environment variable is required');
+  process.exit(1);
+}
+
+if (!process.env.JWT_SECRET) {
+  console.error('JWT_SECRET environment variable is required');
+  process.exit(1);
+}
+
 const sql = neon(process.env.DATABASE_URL);
 const app = express();
+
+// CORS middleware
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  
+  // respond to preflight request
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
 app.use(express.json());
 
 // Create users table if not exists (with role and email_verified)
 const createTable = async () => {
-  await sql`
-    CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,
-      email VARCHAR(255) UNIQUE NOT NULL,
-      password VARCHAR(255) NOT NULL,
-      role VARCHAR(50) DEFAULT 'user',
-      email_verified BOOLEAN DEFAULT false,
-      verification_token VARCHAR(255),
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-  `;
+  try {
+    await sql`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        role VARCHAR(50) DEFAULT 'user',
+        email_verified BOOLEAN DEFAULT false,
+        verification_token VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `;
+    console.log('Database table created successfully');
+  } catch (error) {
+    console.error('Database connection error:', error.message);
+    console.log('Server will continue running, but database operations may fail');
+  }
 };
 createTable();
+
+// Health check endpoint
+app.get('/', (req, res) => {
+  res.json({ message: 'Ignite Farmer API is running!', timestamp: new Date().toISOString() });
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
 
 // Password strength validation
 function isStrongPassword(password) {
@@ -45,6 +87,8 @@ async function sendVerificationEmail(email, token) {
 
 // Signup endpoint
 app.post('/api/auth/signup', async (req, res) => {
+  console.log('Signup request received:', { email: req.body.email, role: req.body.role });
+  
   const { email, password, role } = req.body;
   if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
   if (!isStrongPassword(password))
@@ -54,10 +98,12 @@ app.post('/api/auth/signup', async (req, res) => {
     const verificationToken = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1d' });
     await sql`INSERT INTO users (email, password, role, verification_token) VALUES (${email}, ${hashed}, ${role || 'user'}, ${verificationToken})`;
     await sendVerificationEmail(email, verificationToken);
+    console.log('User created successfully:', email);
     res.status(201).json({ message: 'User created. Please verify your email.' });
   } catch (err) {
+    console.error('Signup error:', err);
     if (err.code === '23505') return res.status(409).json({ error: 'Email already exists' });
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: 'Server error: ' + err.message });
   }
 });
 

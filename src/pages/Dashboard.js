@@ -9,7 +9,7 @@ import WeatherCard from '../components/ChartComponent';
 import LongRange from '../components/LongRange';
 import ShortRange from '../components/ShortRange';
 
-const Dashboard = () => {
+const Dashboard = ({ onLogout }) => {
   const handleAlertButtonClick = () => {
     window.location.href = 'https://telerivet.com/p/e129fa1a/messages';
   };

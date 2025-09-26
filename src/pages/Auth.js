@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
 import { AuthForm } from '../components/layout';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Alert } from '@mui/material';
+import authService from '../api/authService';
 
 const Auth = ({ onAuth }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [type, setType] = useState('login');
 
   const handleSubmit = async (data) => {
     setLoading(true);
     setError('');
-    // Mock authentication logic
-    setTimeout(() => {
-      setLoading(false);
-      if (data.email === 'user@example.com' && data.password === 'Password123!') {
-        onAuth();
+    setSuccess('');
+    
+    try {
+      if (type === 'signup') {
+        await authService.signup(data.email, data.password);
+        setSuccess('Account created! Please check your email to verify your account before logging in.');
+        setType('login'); // Switch to login form after successful signup
       } else {
-        setError('Invalid credentials');
+        await authService.login(data.email, data.password);
+        onAuth(); // Notify parent component that user is authenticated
       }
-    }, 1000);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -48,6 +57,12 @@ const Auth = ({ onAuth }) => {
       </Typography>
       
       <Box sx={{ width: '100%', maxWidth: '450px' }}>
+        {success && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {success}
+          </Alert>
+        )}
+        
         <AuthForm 
           onSubmit={handleSubmit} 
           loading={loading} 
