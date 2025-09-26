@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "build": "echo \"Build step not required for Node.js backend\"",
+    "build": "npm install",
     "install": "npm install"
   },
   "dependencies": {
