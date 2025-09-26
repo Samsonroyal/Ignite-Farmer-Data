@@ -9,8 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "build": "npm install",
-    "install": "npm install"
+    "build": "npm install"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.7.0",
